@@ -8,7 +8,7 @@ The DD-ECO-API v2.0 specification is written in [OpenAPI](https://www.openapis.o
 
 v2.0 ia an extension of v1.0. The new features are entirely optional.
 
-A minimal implementation of the DD-ECO-API can be viewed [here](https://redocly.github.io/redoc/?url=https://github.com/DigitaleDeltaOrg/dd-eco-api/OpenAPI/minimal.json).
+A minimal implementation of the DD-ECO-API can be viewed [here](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/DigitaleDeltaOrg/dd-eco-api/main/OpenAPI/minimal.json).
 
 A full implementation of the AquaDesk provider, as an example, can be viewed [here](https://redocly.github.io/redoc/?url=https://ddecoapi.aquadesk.nl/swagger/v2/swagger.json).
 
