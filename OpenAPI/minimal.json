@@ -1,0 +1,491 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "DD-ECO-API (Minimal implementation)",
+		"description": "Minimal implementation of the DD-ECO-API.",
+		"version": "v2"
+	},
+	"paths": {
+		"/v2/endpoints": {
+			"get": {
+				"tags": [
+					"EndPoints"
+				],
+				"summary": "Endpoints provided by this service.",
+				"operationId": "GetEndpoints",
+				"parameters": [
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number",
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 1
+						}
+					},
+					{
+						"name": "pagesize",
+						"in": "query",
+						"description": "Page size",
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10000
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "List of properties and operators",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/FilterOption"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/v2/measurements/filters": {
+			"get": {
+				"tags": [
+					"Measurements"
+				],
+				"summary": "Retrieves properties and their comparers that can be used for the measurements endpoint.",
+				"description": "Filtering uses the [FilterSyntax](https://github.com/DigitaleDeltaOrg/dd-eco-api-specs/v2.0/filtering.md). Skipproperties can be used to exclude properties from the results.",
+				"operationId": "GetMeasurementFilters",
+				"responses": {
+					"200": {
+						"description": "List of properties and operators",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/FilterOption"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/v2/measurements": {
+			"get": {
+				"tags": [
+					"Measurements"
+				],
+				"summary": "Retrieves measurements that comply with the specified parameters. Requires API Key.",
+				"description": "Filtering uses the [FilterSyntax](https://github.com/DigitaleDeltaOrg/dd-eco-api-specs/v2.0/filtering.md). Skipproperties can be used to exclude properties from the results.",
+				"operationId": "GetMeasurements",
+				"parameters": [
+					{
+						"name": "page",
+						"in": "query",
+						"description": "Page number",
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 1
+						}
+					},
+					{
+						"name": "pagesize",
+						"in": "query",
+						"description": "Page size",
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"default": 10000
+						}
+					},
+					{
+						"name": "filter",
+						"in": "query",
+						"description": "Query filter",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "skipproperties",
+						"in": "query",
+						"description": "Properties to exclude (comma separated list)",
+						"schema": {
+							"type": "string",
+							"default": ""
+						}
+					},
+					{
+						"name": "shape",
+						"in": "query",
+						"description": "Only include the following properties and create them if unknown (comma separated list)",
+						"schema": {
+							"type": "string",
+							"default": ""
+						}
+					},
+					{
+						"name": "nocount",
+						"in": "query",
+						"description": "Skip totalobjectcount",
+						"schema": {
+							"type": "boolean",
+							"default": true
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "List of filtered measurements",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/MeasurementBaseListResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Errors in filter",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Problem"
+								}
+							}
+						}
+					},
+					"403": {
+						"description": "Incorrect API Key",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Problem"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/v2/measurements/removed": {
+			"get": {
+				"tags": [
+					"Measurements"
+				],
+				"summary": "Retrieves ExternalKeys of measurements that were removed since the specified date. Requires API Key.",
+				"description": "Retrieves ExternalKeys of measurements that were removed since the specified date.",
+				"operationId": "GetMeasurementsRemoved",
+				"parameters": [
+					{
+						"name": "x-api-key",
+						"in": "header",
+						"description": "API-Key (header)",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "since",
+						"in": "query",
+						"description": "Since",
+						"schema": {
+							"type": "string",
+							"format": "date-time"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "List of filtered measurements",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/MeasurementRemoved"
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Errors in filter",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Problem"
+								}
+							}
+						}
+					},
+					"403": {
+						"description": "Incorrect API Key",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Problem"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"ActionResult": {
+				"type": "object",
+				"additionalProperties": false
+			},
+			"FilterOption": {
+				"type": "object",
+				"properties": {
+					"fieldName": {
+						"type": "string",
+						"nullable": true,
+						"readOnly": true
+					},
+					"comparer": {
+						"type": "string",
+						"nullable": true,
+						"readOnly": true
+					},
+					"dataType": {
+						"type": "string",
+						"nullable": true,
+						"readOnly": true
+					},
+					"description": {
+						"type": "string",
+						"nullable": true,
+						"readOnly": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"FriendlyError": {
+				"type": "object",
+				"properties": {
+					"errorType": {
+						"type": "string",
+						"nullable": true
+					},
+					"context": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"Geometry": {
+				"type": "object",
+				"properties": {
+					"coordinates": {
+						"type": "array",
+						"items": {
+							"type": "number",
+							"format": "double"
+						},
+						"nullable": true
+					},
+					"type": {
+						"type": "string",
+						"nullable": true
+					},
+					"srid": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"Links": {
+				"type": "object",
+				"properties": {
+					"self": {
+						"type": "string",
+						"nullable": true
+					},
+					"prev": {
+						"type": "string",
+						"nullable": true
+					},
+					"next": {
+						"type": "string",
+						"nullable": true
+					},
+					"maxPageSize": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					},
+					"defaultPageSize": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"minPageSize": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"totalObjectCount": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"Measurement": {
+				"required": [
+					"calculatedunit"
+				],
+				"type": "object",
+				"properties": {
+					"calculatedunit": {
+						"type": "string"
+					},
+					"changedate": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"measurementgeography": {
+						"$ref": "#/components/schemas/Geometry"
+					},
+					"quantity": {
+						"type": "string",
+						"nullable": true
+					},
+					"measuredunit": {
+						"type": "string",
+						"nullable": true
+					},
+					"measuredvalue": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"measurementdate": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"parameter": {
+						"type": "string",
+						"nullable": true
+					},
+					"externalkey": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"MeasurementBaseListResponse": {
+				"required": [
+					"result"
+				],
+				"type": "object",
+				"properties": {
+					"paging": {
+						"$ref": "#/components/schemas/Links"
+					},
+					"provider": {
+						"$ref": "#/components/schemas/ProviderBlock"
+					},
+					"result": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Measurement"
+						}
+					}
+				},
+				"additionalProperties": false
+			},
+			"MeasurementRemoved": {
+				"type": "object",
+				"properties": {
+					"externalKey": {
+						"type": "string",
+						"format": "uuid",
+						"nullable": true
+					},
+					"removedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"additionalProperties": false
+			},
+			"Problem": {
+				"type": "object",
+				"properties": {
+					"typeInfo": {
+						"type": "string",
+						"nullable": true
+					},
+					"title": {
+						"type": "string",
+						"nullable": true
+					},
+					"status": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"detail": {
+						"type": "string",
+						"nullable": true
+					},
+					"instance": {
+						"type": "string",
+						"nullable": true
+					},
+					"provider": {
+						"$ref": "#/components/schemas/ProviderBlock"
+					},
+					"errors": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/FriendlyError"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"ProviderBlock": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string",
+						"nullable": true
+					},
+					"supportUrl": {
+						"type": "string",
+						"nullable": true
+					},
+					"apiVersion": {
+						"type": "string",
+						"nullable": true
+					},
+					"responseType": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			}
+		}
+	}
+}
