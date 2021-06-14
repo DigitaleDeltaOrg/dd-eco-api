@@ -55,7 +55,7 @@ The in- and notin operators allow logical OR comparisons within the property.
 ## Custom comparers
 
 Specific scenario's may require custom comparers.
-An example: to retrieve alle measurements for Bristleworms (scientific name: Polychaeta), consisting of over 11.000 species, would take a huge number of requests as all species would be queried individually and the requester would need to know all names of the species.
+An example: to retrieve alle measurements for Bristle worms (scientific name: Polychaeta), consisting of over 11.000 species, would take a huge number of requests as all species would be queried individually and the requester would need to know all names of the species.
 For those scenario's the AquaDesk implementation created the custom tree operator (short for tree-of-life)
 
 ## Implementing FilterSyntax

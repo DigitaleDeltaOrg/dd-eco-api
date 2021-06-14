@@ -14,14 +14,15 @@ A full implementation of the AquaDesk provider, as an example, can be viewed [he
 
 The new features include:
 
-- [nocount](parameters.md#nocount) parameter
-- [skipproperties](parameters.md#skipproperties) parameter
-- [shape](parameters.md#shape) parameter
+- [`nocount`](parameters.md#nocount) parameter
+- [`skipproperties`](parameters.md#skipproperties) parameter
+- [`shape`](parameters.md#shape) parameter
 - Formalization of [content compression](content.md#contentcompression)
 
 ## About the Digital Delta Eco specification
 
-The DD-ECO-API is a specification of a REST service to **retrieve** ecological data. However, it is not **limited** to ecological data. It is capable of handling biological, chemical, and physics-related data.
+The DD-ECO-API is a specification of a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) service to **retrieve** ecological data. However, it is not **limited** to ecological data.
+It is capable of handling biological, chemical, and physics-related data.
 
 While the DD-API focusses on time series (data that in time only differs in the measured value), the DD-ECO-API focusses on observations, which also deals with sampling, preparation, measurement and (re)calculation.
 

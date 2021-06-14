@@ -27,35 +27,35 @@ See [Filtering](filtering.md).
 ## nocount
 
 Note: implementing sorting is _optional_.
-The nocount parameter accepts a boolean (true or false) and controls whether not not the totalobjectcount property in the paging block will be present.
-This parameter can be useful to improve on performance, since the server does not need to query the whole data set. This parameter is optional and the default behavior is to include the totalobjectcount property, so the default value is true.
+The `nocount` parameter accepts a boolean (true or false) and controls whether not not the `totalobjectcount` property in the paging block will be present.
+This parameter can be useful to improve on performance, since the server does not need to query the whole data set. This parameter is optional and the default behavior is to include the `totalobjectcount` property, so the default value is true.
 
 ## skipproperties
 
 Note: implementing sorting is _optional_.
-The skipproperties parameter provides a mechanism to exclude the specified fields from the results..
+The `skipproperties` parameter provides a mechanism to exclude the specified fields from the results..
 Example:
-&skipproperties=id,changedate
+`&skipproperties=id,changedate`
 
-This would remove the fields id and changedate from the response.
+This would remove the fields `id` and `changedate` from the response.
 The consumer cannot define the order of the fields. This is up to the server.
 
 ## shape
 
-Note: implementing shape is _optional_.
-The shape parameter provides a mechanism to define what fields the response consists of.
+Note: implementing `shape` is _optional_.
+The `shape` parameter provides a mechanism to define what fields the response consists of.
 When the consumer specified a field that the provider doesn't know, it _must_ be supplied by the provider with a null value.
 The consumer cannot define the order of the fields. This is up to the server.
 
 Example:
 
-shape=id,code,name,unknown
+`shape=id,code,name,unknown`
 
 ## sort
 
 Note: implementing sorting is _optional_.
-The sort parameter defines the sort order of the results. It comprises of a list of field name and sort direction. Possible values of the sort direction is ASC (for ascending) and DESC (for descending).
+The `sort` parameter defines the sort order of the results. It comprises of a list of field name and sort direction. Possible values of the sort direction is ASC (for ascending) and DESC (for descending).
 
 Example:
 
-sort=changedate ASC,status DESC
+`sort=changedate ASC,status DESC`

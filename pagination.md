@@ -13,8 +13,15 @@ Three items determine the query results:
 The paging logic is as follows:
 
 1. Apply the filter to the data.
-2. Skip (pagesize * (page - 1) rows.
-3. Return (pagesize) records.
+2. Skip `(pagesize * (page - 1)` rows.
+3. Return `(pagesize)` records.
+
+For queries specified with parameter `nocount` specified:
+
+1. Apply the filter to the data.
+2. Skip `(pagesize * (page - 1))` rows.
+3. Retrieve `(pagesize + 1)` rows. If only (pagesize) or less rows are returned, there is no next page.
+4. Return `(pagesize)` rows
 
 A consumer can therefor assume (and depend on) the following:
 
