@@ -30,7 +30,7 @@ A short description on ecological measurements and what makes it difference can 
 
 Since ecology is diverse, in that no two ecological research projects may require the exact same data to be registered, the DD-ECO-API specification focusses on formalizing functionality and structure, but provides suggestions for properties to make the data useful (make information from data).
 
-In the DD-ECO-API spec therefor describes:
+The DD-ECO-API specification therefor describes:
 
 - Minimal [requirements](requirements.md) and suggestions.
 - How to find the data ny [filtering](filtering.md).
