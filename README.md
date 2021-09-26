@@ -6,7 +6,7 @@ It replaces [the older specification](https://github.com/DigitaleDeltaOrg/dd-eco
 
 The DD-ECO-API v2.0 specification is written in [OpenAPI](https://www.openapis.org/) version 3.0.1. This makes viewing and interpreting the specification easier. It also opens the doors to more documentation- and code-generator tools.
 
-v2.0 ia an extension of v1.0. The new features are entirely optional.
+v2.0 is an extension of v1.0. The new features are entirely optional.
 
 A minimal implementation of the DD-ECO-API can be viewed [here](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/DigitaleDeltaOrg/dd-eco-api/main/OpenAPI/minimal.json).
 
