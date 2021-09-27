@@ -40,6 +40,7 @@ The standard comparers are:
 | endswith | String ends with the value. | string | no |
 | wkt | Item is within the Well-known-text=specified object | [Wkt](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) | no |
 | geojson | Item is within the GeoJSON-specified object | [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) | no |
+| bbox | Bounding box | array of number | no |
 | all | all items in the list must be present in the queried item | string, number | no |
 
 The in- and notin operators allow logical OR comparisons within the property.
