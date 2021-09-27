@@ -33,7 +33,7 @@ Since ecology is diverse, in that no two ecological research projects may requir
 The DD-ECO-API specification therefor describes:
 
 - Minimal [requirements](requirements.md) and suggestions.
-- How to find the data ny [filtering](filtering.md).
+- How to find the data by [filtering](filtering.md).
 - How to [paginate](pagination.md) the responses.
 - How to produce and control [output](output.md).
 - How to protect [data](security.md).
