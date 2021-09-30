@@ -64,12 +64,15 @@ The in- and notin operators allow logical OR comparisons within the property.
 
 ## Implementing Filter Syntax
 
-The process of implementing the FilterSyntax may seem daunting, but may prove to be easier than it looks.
+The process of implementing the Filter Syntax is easier than it looks.
 
-In most situations, it is sufficient to dynamically generate (database) queries based on the Filter Syntax.
+A sample implementation of the Filter Syntax is provided in C# using the .NET 5 runtime.
 
-## Parsing Filter Syntax
+it should be relatively easy to convert to other languages such as Java, Python and Rust.
 
-A C# project with code able to parse FilterSyntax can be found [here](/CSharp/DD-ECO-FilterParser/DD-ECO-FilterParser.csproj). It is written in C# 9.0 with the .NET CORE 3.1 runtime and uses no external packages.
+A library able to parse JSON is required.
 
-For implementing wkt and geojson, external packages probably __are__ required.
+Specific functionality, such as the wkt and geojson operators (optional) may require a specialized library to validate those values.
+
+In most situations, it is sufficient to dynamically generate (database) queries based on the parsed query.
+
