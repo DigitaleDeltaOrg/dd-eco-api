@@ -25,7 +25,7 @@ FilterSyntax has the following structure:
 
 The standard comparers are:
 
-| Comparer | Description | Data types | Required |
+| Comparer | Description | Data types | Requirement |
 |----------|-------------|------|----|
 | eq | equal | string, date, number | Required |
 | ne | not equal | string, date, number | Recommended |
