@@ -66,7 +66,7 @@ The in- and notin operators allow logical OR comparisons within the property.
 
 The process of implementing the Filter Syntax is easier than it looks.
 
-A sample implementation of the Filter Syntax is provided in C# using the .NET 5 runtime.
+A sample implementation of the Filter Syntax is provided in C# using the .NET Core 3.1 runtime. It compiles under Windows, Linux and MacOS.
 
 it should be relatively easy to convert to other languages such as Java, Python and Rust.
 
