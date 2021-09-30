@@ -61,13 +61,6 @@ The in- and notin operators allow logical OR comparisons within the property.
 | location&colon;in&colon;["NKLAD","NKLBVA","NLKBRA"];parameter&colon;eq&colon;"Eukariota";measuredvalue&colon;gt&colon;1000;measuredunit&colon;eq&colon;"n" | Find all Eukariota at location NLKAD or NKLBVA or NLKBRA where measured value > 1000 and the measurements where expressed in count (n) |
 | location&colon;in&colon;["NKLAD","NKLBVA","NLKBRA"];parameter&colon;in&colon;["Eukariota [1]","Plantae"];measuredvalue&colon;gt&colon;1000;measuredunit&colon;eq&colon;"n" | Find all Eukariota or Plantae at location NLKAD or NKLBVA or NLKBRA where measured value > 1000 and the measurements where expressed in count (n) |
 
-## Custom comparers
-
-Specific scenario's may require custom comparers.
-
-An example: to retrieve alle measurements for Bristle worms (scientific name: Polychaeta), consisting of over 11.000 species, would take a huge number of requests as all species would be queried individually and the requester would need to know all names of the species.
-
-For those scenario's the AquaDesk implementation created the custom tree operator (short for tree-of-life).
 
 ## Implementing Filter Syntax
 
