@@ -17,7 +17,7 @@ The new features include:
 - [`nocount`](parameters.md#nocount) parameter
 - [`skipproperties`](parameters.md#skipproperties) parameter
 - [`shape`](parameters.md#shape) parameter
-- Formalization of [content compression](content.md#contentcompression)
+- Formalization of [content compression](content-compression.md)
 
 ## About the Digital Delta Eco specification
 
