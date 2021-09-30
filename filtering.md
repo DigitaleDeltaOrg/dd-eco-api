@@ -27,21 +27,21 @@ The standard comparers are:
 
 | Comparer | Description | Data types | Required |
 |----------|-------------|------|----|
-| eq | equal | string, date, number | yes |
-| ne | not equal | string, date, number | no |
-| lt | less than | date, number | no |
-| le | less than or equal to | date, number | no |
-| ge | greater than or equal to | date, number | no |
-| gt | greater than | date, number | no |
-| in | item is one of the values in the list | array of string, array of number | no |
-| notin | item is NOT one of the values in the list | array of string, array of number | no |
-| like | String contains the value (is like). | string | no |
-| startswith | String starts with the value. | string | no |
-| endswith | String ends with the value. | string | no |
-| wkt | Item is within the Well-known-text=specified object | [Wkt](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) | no |
-| geojson | Item is within the GeoJSON-specified object | [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) | no |
-| bbox | Bounding box | array of number | no |
-| all | all items in the list must be present in the queried item | string, number | no |
+| eq | equal | string, date, number | Required |
+| ne | not equal | string, date, number | Recommended |
+| lt | less than | date, number | Recommended |
+| le | less than or equal to | date, number | Recommended |
+| ge | greater than or equal to | date, number | Recommended |
+| gt | greater than | date, number | Recommended |
+| in | item is one of the values in the list | array of string, array of number | Strongly recommended |
+| notin | item is NOT one of the values in the list | array of string, array of number | Not required |
+| like | String contains the value (is like). | string | Recommended |
+| startswith | String starts with the value. | string | Recommended |
+| endswith | String ends with the value. | string | Recommended |
+| wkt | Item is within the Well-known-text=specified object | [Wkt](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) | Not required |
+| geojson | Item is within the GeoJSON-specified object | [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) | Not required |
+| bbox | Bounding box | array of number | Recommended |
+| all | all items in the list must be present in the queried item | string, number | Not required |
 
 The in- and notin operators allow logical OR comparisons within the property.
 
@@ -62,7 +62,7 @@ For those scenario's the AquaDesk implementation created the custom tree operato
 ## Implementing Filter Syntax
 
 The process of implementing the FilterSyntax may seem daunting, but may prove to be easier than it looks.
-In most situations, it is sufficient to dynamically generate (database) queries based on the FilterSyntax.
+In most situations, it is sufficient to dynamically generate (database) queries based on the Filter Syntax.
 
 ## Parsing Filter Syntax
 
