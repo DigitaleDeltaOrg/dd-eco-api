@@ -46,4 +46,6 @@ The block content is:
 ## Response block
 
 The response block is the third and last block in the output response and consists of a simple JSON array of 'records'. It can consist of a collection of key/value pairs, key/array pairs or key/structure pairs.
-The contents are up to the provider and the available data, but the consumer has some control over the structure of the response by using the [skipproperties](parameters.md#skipproperties) and [shape](parameters.md#shape) properties.
+The contents are up to the provider and the depend on the selected endpoint. 
+
+The consumer has some control over the structure of the response by using the [skipproperties](parameters.md#skipproperties) and [shape](parameters.md#shape) properties.
