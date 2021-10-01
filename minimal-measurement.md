@@ -24,7 +24,8 @@ Another recommended feature would be to have a service that lists the items (by 
 
 Minimal measurements often do not contain enough information. Therefor, the properties are not limited to the fields described above.
 
-At times, measurements can not be expressed in a numeric value. Example: odor, or the Braun-Blanquet scale.
+At times, measurement values can not be quantifiable. Example: odor, or the Braun-Blanquet scale.
+
 In those cases, classifiedvalue can be beneficial:
 
 - classifiedvalue: this represents, a value associated with a quantity when a numeric representation is not possible of feasible. For instance, in the case of quantity color this value could be YELLOW.
@@ -33,8 +34,10 @@ The value that was measured does not always represent the value that needs to be
 
 - calculatedvalue: outcome of a calculation where measuredvalue is part of the calculation.
 
-The properties of a measurement do not need to be limited singular date, string or numeric valued. It is also possible to use arrays and key-value pairs.
+The properties of a measurement do not need to be limited to a singular date, string or numeric value. It is also possible to use arrays and key-value pairs.
 Examples:
 
 - Describe which devices are used for sampling the measurements.
 - Store properties seen with the specific measurements (life-stage, gender, length-class) with a single measurement, without to add specific columns when most of the data is optional.
+
+
