@@ -26,4 +26,4 @@ All data, except for organization-specific data is open and free.
 Organization data (measurements, measurement objects, notes, methods, monitoring networks) are protected by API keys, which can be obtained by contacting the organizations that own the data.
 The demo key above gives access to fictive data of the EcoSys organization. This data will be expanded with subsets of real data contributed by the other organizations.
 
-The DD-ECO-API implementation of AquaDesk is the official source of the TWN List (Taxa Beheer Nederland) and is included in the /v2/parameters endpoint. Use filter=parametertype:eq:'TAXON' to get all TWN list entries.
+The DD-ECO-API implementation of AquaDesk is the official source of the TWN List (Taxa Waterbeheer Nederland) and is included in the /v2/parameters endpoint. Use filter=parametertype:eq:'TAXON' to get all TWN list entries.
