@@ -30,6 +30,16 @@ Dates _must_ be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-
 - An endpoint named /v&lt;version&gt;/endpoints is _required_, which lists the available endpoints known by the server.
 - An endpoint named /v&lt;version&gt;/measurements is _required_. This will return measurements (the goal of this API specification). There will be data directly referencing other endpoints: /measurements should provide all relevant data by itself.
 - All other endpoints are considered Discovery endpoints and optional, giving more specific information on entities used in the /measurements endpoint.
+- The following endpoints _should_ be available:
+
+  - /quantities
+  - /parameters
+  - /units
+
+- It is _recommended_ to have the following endpoints:
+
+  - /compartments
+  - /measurementobjects (locations)
 - All endpoints (except /endpoints itself) _should_ provide a sub-endpoint called [/filters](filtersendpoint.md). The purpose of [/filters](filtersendpoint.md) is to return a list of known fields that can be used for filtering, together with the comparers they support for the specific fields. This is essential for the consumer.
 - All non-error-responses (except for /filters sub-endpoints) _must_ use the same structure: first a [paging](output.md#paging-block) block, then the [provider](output.md#provider-block) block and lastly the [results](output.md#result-block) block.
 - All endpoints (except /filters sub-endpoints) _must_ implement the specified [pagination](pagination.md) algorithm.
@@ -42,7 +52,7 @@ Dates _must_ be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-
 
 ## Discovery
 
-The service _should_ provide endpoints that specify what entities are known and provided by the service. 
+The provider _should_ provide endpoints that specify what entities are known and provided by the service. 
 
 The following endpoints _should_ be available:
 
@@ -55,6 +65,10 @@ It is _recommended_ to have the following endpoints:
 - /compartments
 - /measurementobjects (locations)
 
+In addition, the provider can choose to add endpoints that provide data specific for their system. 
+For example: the AquaDesk DD-ECO-API provider has endpoints for taxon literature, measurement packages, etc.
+
+All endpoints provided by the provider, *must* be listed in the /endpoints endpoint.
 
 ## GET and POST
 
