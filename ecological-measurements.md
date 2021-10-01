@@ -16,4 +16,8 @@ Information that may need to be recorded is:
 - Circumstances of the organism found (i.e. life stage, gender, length class, living/dead, phototropic)
 - Circumstances of the sampling area (i.e. construction site, cloudy water, rainy day)
 
-This depends per measurement. Obviously, for measuring fish, you don't need a microscope or an incubator, but you may need a net. For micro organisms, you will most likely need a microscope, and depending on the type of micro organism, you may need dye.
+The required data can change per measurement type. Furthermore, the data recorded can even differ per measurement. 
+
+Obviously, for measuring fish, you don't need a microscope or an incubator, but you may need a net. 
+
+For micro organisms, you will most likely need a microscope, and depending on the type of micro organism, you may need some kind of dye.
