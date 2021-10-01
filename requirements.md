@@ -40,6 +40,22 @@ Dates _must_ be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-
 - The provider _should_ implement [content security](security.md) for non- or semi public data.
 - The provider _should_ implement a method to retrieve what entities where removed since a specific date (/removed sub-endpoint).
 
+## Discovery
+
+The service _should_ provide endpoints that specify what entities are known and provided by the service. 
+
+The following endpoints _should_ be available:
+
+- /quantities
+- /parameters
+- /units
+
+It is _recommended_ to have the following endpoints:
+
+- /compartments
+- /measurementobjects (locations)
+
+
 ## GET and POST
 
 Primarily, the DD-ECO-API only supports GET requests. However, in some circumstances the data that need to be passed to the DD-ECO-API is more than either the client can send or the provider can receive. 
