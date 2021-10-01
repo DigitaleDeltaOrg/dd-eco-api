@@ -21,11 +21,11 @@ The new features include:
 
 ## About the Digital Delta Eco specification
 
-The DD-ECO-API is a specification of a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) service to **retrieve** ecological data. Is has nu functionality to modify data in any way. 
-However, it is not **limited** to ecological data.
-It is capable of handling biological, chemical, and physics-related data.
+The DD-ECO-API is a specification of a retrieve-only [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) service, focussing on (but not limited to) ecology. 
 
-While the DD-API focusses on time series (data that in time only differs in the measured value), the DD-ECO-API focusses on observations, which also deals with sampling, preparation, measurement and (re)calculation.
+Ecological data consists of both biotic (related to life forms) and abiotic (chemical- and physics-related) measurements.
+
+While the DD-API focusses on time series (data that in time only differs in the measured value), the DD-ECO-API focusses on observations, which also deals with sampling, preparation, determination and measurement.
 
 A short description on ecological measurements and what makes it difference can be found [here](ecological-measurements.md).
 
