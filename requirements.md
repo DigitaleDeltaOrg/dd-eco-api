@@ -39,3 +39,16 @@ Dates _must_ be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-
 - The provider _should_ implement [content compression](content-compression.md).
 - The provider _should_ implement [content security](security.md) for non- or semi public data.
 - The provider _should_ implement a method to retrieve what entities where removed since a specific date (/removed sub-endpoint).
+
+## GET and POST
+
+Primarily, the DD-ECO-API only supports GET requests. However, in some circumstances the data that need to be passed to the DD-ECO-API is more than either the client can send or the provider can receive. 
+
+An example of this is a very detailed WKT or GeoJSON definition for an area. This can yield data in the megabyte ranges, well over the safe transmission limits (about 2K).
+
+In these cases, where the provider can consider allowing the client to pass the filter through the body by using a POST.
+
+The usage of a POST may seem contradicting, since a POST means that a resource needs to be created. 
+
+However, passing Filter Syntax can be considered creating a resource, namely a search context. POST does not define that a permanent resource needs to be created.
+
