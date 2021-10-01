@@ -23,6 +23,6 @@ For queries specified with parameter `nocount` specified:
 3. Retrieve `(pagesize + 1)` rows. If only (pagesize) or less rows are returned, there is no next page.
 4. Return `(pagesize)` rows
 
-A consumer can therefor assume (and depend on) the following:
+A consumer _should_ be able to safely assume the following:
 
 - If the number of results returned is less than pagesize, there will be no more pages to be retrieved, so the end of the result set is reached.
