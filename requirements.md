@@ -34,7 +34,7 @@ Dates _must_ be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-
 
   - ```/quantities```
   - ```/parameters```
-  - ```/units
+  - ```/units```
 
 - It is _recommended_ to have the following endpoints:
 
